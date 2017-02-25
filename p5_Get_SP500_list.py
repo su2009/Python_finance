@@ -15,7 +15,7 @@ def save_sp500_tickers():
     # soup.find('table','class'='wikitable sortable')  SyntaxError: keyword can't be an expression  why?
     tickers = []
     for row in table.findAll('tr')[1:]:
-        ticker = row.findAll('td')[0].text
+        ticker = row.findAll('td')[0].text # note: row.findAll instead of table.findAll 
         tickers.append(ticker)
     
     with open('sp500ticker.pickle','wb') as f:
